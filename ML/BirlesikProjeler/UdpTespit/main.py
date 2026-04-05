@@ -83,6 +83,13 @@ async def analiz():
                print(f"🚨 DDoS kaydedildi!")
         await io.sleep(0.001)  
 
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
+plt.figure(figsize=(20,10))
+plot_tree(model, feature_names=X.columns, class_names=['No Diabetes', 'Diabetes'], filled=True)
+plt.savefig("diabetes_decision_tree.png") # Bu satır dosyayı oluşturur
+plt.show()
 if __name__ == "__main__":
     io.run(analiz())
 #===============================================
