@@ -85,7 +85,7 @@ async def analiz():
 
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
-
+#öğrenim ağacı
 plt.figure(figsize=(20,10))
 plot_tree(model, feature_names=X.columns, class_names=['No Diabetes', 'Diabetes'], filled=True)
 plt.savefig("diabetes_decision_tree.png", dpi=300, bbox_inches='tight')
