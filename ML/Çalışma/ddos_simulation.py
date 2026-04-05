@@ -1,3 +1,4 @@
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import sys
@@ -14,12 +15,12 @@ df = pd.DataFrame(data)
 X = df[['paket_boyutu', 'hiz_ms', 'port']]
 y = df['sonuc']
 
-# 2. MODELİ EĞİT (Fit)
+# Modeli eğitiyoruz
 model = DecisionTreeClassifier()
 model.fit(X, y)
 print()
 
-# Örnek: Boyutu 1500, hızı 1ms (çok hızlı), portu 80 olan bir paket
+
 yeni_paket = pd.DataFrame([[152, 10, 82132130]], columns=['paket_boyutu', 'hiz_ms', 'port'])
 print("\n" + "="*70)
 print("     🌐 CANLI DDoS ANALİZ SİSTEMİ 🌐")

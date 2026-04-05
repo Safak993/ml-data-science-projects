@@ -14,21 +14,42 @@
 
 ## 📁 Repo Yapısı
 
+## Test
+
+Projeyi test etmek için loopback üzerinde UDP paketi gönderen
+bir script kullanılmıştır.
+
 ```
 📦 ml-network-projects/
  ┣ 📂 ml/
  ┃ ┣ 📂 Çalışma/
  ┃ ┃ ┣ 📄 DDoS_Simulation.py
  ┃ ┃ ┣ 📄 MicroMicro.py
-   ┣ 📂Proje/
-     ┣ 📄 Yakinda.py
-
+ ┃ ┣ 📂Proje/
+ ┃ ┃ ┣ 📄 Yakinda.py
+ ┃ ┃
  ┣ 📂 scapyler/
  ┃ ┣ 📂 Çalışma/
  ┃ ┃ ┣ 📄 Tarama.py
-   ┣ 📂 Proje/
-     ┣  📄 Yakinda.py
- ┗ 📄 README.md
+ ┃ ┃ ┣ 📄 BelirliPaketiPaketleme.py
+ ┃ ┣ 📂 Proje/
+ ┃ ┃ ┣  📄 Yakinda.py
+ ┃
+ ┃ ┣ 📂 BirlesikCalismalar/
+ ┃ ┣ 📄Yakında
+ ┃
+ ┣ 📂 BirlesikProjeler/
+ ┃ ┣ 📂UdpTespit/
+ ┃ ┃ ┣ 📄 main.py
+ ┃ ┃ ┣ 📄 Syn-training.parquet (dataset)
+ ┃ ┃ ┣ 📄 requirements.txt
+ ┣ 📂 Data/
+ ┃ ┣ 🧰 Set.zip
+ ┃ ┃
+ ┣ 📄 README.md
+ ┣ ⭐LICENSE
+ ┣ 📄 COMMERCIAL_LICENSE
+
 ```
 
 ---
@@ -53,6 +74,14 @@ Bu proje iki lisans altında dağıtılmaktadır:
 | Proje      | Açıklama          |
 | ---------- | ----------------- |
 | 🔜 Yakında | Yakında eklenecek |
+
+---
+
+## 🌐Birleşik Projeler🤖
+
+| Proje         | Açıklama                                   |
+| ------------- | ------------------------------------------ |
+| 👩‍💻DDoS Tespit | ⛓DDoS saldırılarını tespit eden model(udp) |
 
 ---
 
