@@ -17,14 +17,17 @@
 ```
 📦 ml-network-projects/
  ┣ 📂 ml/
- ┃ ┣ 📂 proje-adi/
- ┃ ┃ ┣ 📄 main.py
- ┃ ┃ ┣ 📄 README.md
- ┃ ┃ └ 📄 requirements.txt
- ┣ 📂 scapy/
- ┃ ┣ 📂 proje-adi/
- ┃ ┃ ┣ 📄 main.py
- ┃ ┃ └ 📄 README.md
+ ┃ ┣ 📂 Çalışma/
+ ┃ ┃ ┣ 📄 DDoS_Simulation.py
+ ┃ ┃ ┣ 📄 MicroMicro.py
+   ┣ 📂Proje/
+     ┣ 📄 Yakinda.py
+
+ ┣ 📂 scapyler/
+ ┃ ┣ 📂 Çalışma/
+ ┃ ┃ ┣ 📄 Tarama.py
+   ┣ 📂 Proje/
+     ┣  📄 Yakinda.py
  ┗ 📄 README.md
 ```
 
@@ -32,16 +35,16 @@
 
 ## 🤖 Sklearn Projeleri
 
-| Proje | Açıklama | Algoritma |
-|-------|----------|-----------|
-| 🔜 Yakında | Yakında eklenecek | — |
+| Proje      | Açıklama          | Algoritma |
+| ---------- | ----------------- | --------- |
+| 🔜 Yakında | Yakında eklenecek | —         |
 
 ---
 
 ## 🌐 Scapy Projeleri
 
-| Proje | Açıklama |
-|-------|----------|
+| Proje      | Açıklama          |
+| ---------- | ----------------- |
 | 🔜 Yakında | Yakında eklenecek |
 
 ---
@@ -76,4 +79,4 @@ pip install -r requirements.txt
 
 ---
 
-*"Kod yazmak sadece bir araçtır, asıl amaç bir şeyler inşa etmektir."* 💻✨
+_"Kod yazmak sadece bir araçtır, asıl amaç bir şeyler inşa etmektir."_ 💻✨
