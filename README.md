@@ -121,7 +121,7 @@ pip install -r requirements.txt
 
 | Metric             | Value                     |
 | :----------------- | :------------------------ |
-| **Accuracy Score** | **%99.76**                |
+| **Accuracy Score** | **%99.83**                |
 | **Test Split**     | 80/20 (Random State: 42)  |
 | **Training Data**  | Pima & SYN-Training Mixed |
 

@@ -9,11 +9,14 @@ from collections import defaultdict
 import os
 import json
 import queue
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 #================================================
 #- By Safak993 DDoS Udp saldırılarını engelleme
 #- Hazır Data Set
 #================================================
-df_raw = pd.read_parquet("Syn-training.parquet")
+
+df_raw = pd.read_parquet("UDP-training.parquet")
 data = {
     'paket'     : df_raw['Total Fwd Packets'],
     'hiz'       : df_raw['Flow Packets/s'],
@@ -48,9 +51,10 @@ def paket_isle(paket):
         kuyruk.put(paket)
 
 # Sniffer sürekli arka planda çalışır
-sniffer = AsyncSniffer(filter="udp", prn=paket_isle)
+sniffer = AsyncSniffer(iface="\\Device\\NPF_Loopback", filter="udp", prn=paket_isle)
 sniffer.start()
-
+saldiri_verileri = df[df['sonuc'] == 1]
+print(f"📊 Veri setindeki ortalama saldırı hızı: {saldiri_verileri['hiz'].mean():.2f} paket/s")
 async def analiz():
     sayac = 0
     tum_paketler = []
@@ -64,17 +68,22 @@ async def analiz():
             ip_gecmisi[src_ip] = [p for p in ip_gecmisi[src_ip] if simdi - p["zaman"] < 0.1]
             gecmis = ip_gecmisi[src_ip]
             paket_sayisi = len(gecmis)
-            sure = simdi - gecmis[0]["zaman"] if len(gecmis) > 1 else 0.000001
-            sure = sure if sure > 0 else 0.000001
-            hiz = paket_sayisi / sure
-
+            if paket_sayisi > 1:
+                sure = simdi - gecmis[0]["zaman"]
+                sure = max(sure, 0.001) 
+                hiz_sn = paket_sayisi / sure # Saniyedeki paket (Ekrana yazdırmak için)
+                sure_micro = sure * 1_000_000
+                hiz_micro = hiz_sn # Modelin beklediği Flow Packets/s
+            else:
+                hiz_sn = 0
+                sure_micro = 0
+                hiz_micro = 0
+            # Hesaplanmış boyutu al
             boy = sum(p["boyut"] for p in gecmis) / paket_sayisi
-            sure_micro = sure * 1_000_000  # microsaniyeye çevir
-            hiz_micro = paket_sayisi / sure_micro 
-            tahmin = model.predict([[paket_sayisi, hiz_micro, sure_micro, boy]])
+            tahmin = model.predict([[paket_sayisi, hiz_sn, sure_micro, boy]])
             print("="*40)
             durum = "⚠️ DDoS!" if tahmin[0] == 1 else "✅ Normal"
-            print(f"{src_ip} | paket:{paket_sayisi} | hız:{hiz:.1f}/s | {durum}")
+            print(f"{src_ip} | paket:{paket_sayisi} | hız:{hiz_sn:.1f}/s | {durum}")
             print("="*40)
 
             # JSON'a ekle ama henüz yazma
@@ -101,19 +110,23 @@ import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 #öğrenim ağacı
 plt.figure(figsize=(20,10))
-plot_tree(model, feature_names=X.columns, class_names=['No Diabetes', 'Diabetes'], filled=True)
+plot_tree(model, feature_names=X.columns, class_names=['Normal', 'DDoS'], filled=True)
 plt.savefig("diabetes_decision_tree.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 if __name__ == "__main__":
     io.run(analiz())
-#===============================================
+#===================================================================================================================================
 
 
 #- Eğer biranda ddos! derse çok şaşmayın eğer bir kasıntı yoksa ve birazcık atıp bırakıyosa korkulucak birşey yok
+#- İnternetiniz hızlıysa anlık olarak 200 300 udp (fazla bitli) gelebilir bunlar sizin internetinizle alakalı gerçek ddos bu değildir
+#- Gerçek DDoS aynı anda 2000 3000 paket zehirler  
+#- Arasıra ddos arasıra normal diyorsa buda normal bir durumdur zehirlenme değildir
 #- Olabilite durumlar:
 #- Her saniye ddos uyarısı geliyorsa
-#- 1saniyede 900 1000 civarı pakey geliyorsa
+#- 1saniyede 10000 civarı pakey geliyorsa
+
 
 #- By Safak993/Siber Güvenlik
-#===============================================================================
+#==================================================================================================================================
