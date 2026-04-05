@@ -51,7 +51,7 @@ def paket_isle(paket):
         kuyruk.put(paket)
 
 # Sniffer sürekli arka planda çalışır
-sniffer = AsyncSniffer(iface="\\Device\\NPF_Loopback", filter="udp", prn=paket_isle, store=0)
+sniffer = AsyncSniffer(filter="udp", prn=paket_isle, store=0)
 sniffer.start()
 saldiri_verileri = df[df['sonuc'] == 1]
 print(f"📊 Veri setindeki ortalama saldırı hızı: {saldiri_verileri['hiz'].mean():.2f} paket/s")
