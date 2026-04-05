@@ -51,21 +51,31 @@ def paket_isle(paket):
         kuyruk.put(paket)
 
 # Sniffer sürekli arka planda çalışır
-sniffer = AsyncSniffer(iface="\\Device\\NPF_Loopback", filter="udp", prn=paket_isle)
+sniffer = AsyncSniffer(iface="\\Device\\NPF_Loopback", filter="udp", prn=paket_isle, store=0)
 sniffer.start()
 saldiri_verileri = df[df['sonuc'] == 1]
 print(f"📊 Veri setindeki ortalama saldırı hızı: {saldiri_verileri['hiz'].mean():.2f} paket/s")
+saldiri_ornekleri = df[df['sonuc'] == 1].head(5)
+print("📊 Makinenin 'Saldırı' dediği örnek veriler:")
+print(saldiri_ornekleri)
 async def analiz():
     sayac = 0
     tum_paketler = []
+    son_temizlik = time.time()
     
     while True:
+        simdi = time.time()
+        if simdi - son_temizlik >= 1.0:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"🚀 Safak993 DDoS Shield Aktif | İzlenen IP Sayısı: {len(ip_gecmisi)}")
+            print("-" * 50)
+            son_temizlik = simdi
         while not kuyruk.empty():
             paket = kuyruk.get()
             src_ip = paket[IP].src
             simdi = time.time()
             ip_gecmisi[src_ip].append({"zaman": simdi, "boyut": len(paket)})
-            ip_gecmisi[src_ip] = [p for p in ip_gecmisi[src_ip] if simdi - p["zaman"] < 0.1]
+            ip_gecmisi[src_ip] = [p for p in ip_gecmisi[src_ip] if simdi - p["zaman"] < 1.0]
             gecmis = ip_gecmisi[src_ip]
             paket_sayisi = len(gecmis)
             if paket_sayisi > 1:
@@ -80,11 +90,16 @@ async def analiz():
                 hiz_micro = 0
             # Hesaplanmış boyutu al
             boy = sum(p["boyut"] for p in gecmis) / paket_sayisi
-            tahmin = model.predict([[paket_sayisi, hiz_sn, sure_micro, boy]])
-            print("="*40)
-            durum = "⚠️ DDoS!" if tahmin[0] == 1 else "✅ Normal"
-            print(f"{src_ip} | paket:{paket_sayisi} | hız:{hiz_sn:.1f}/s | {durum}")
-            print("="*40)
+            tahmin_hizi = hiz_sn if hiz_sn < 2000 else 100000
+            tahmin = model.predict([[paket_sayisi, tahmin_hizi, sure_micro, boy]])
+            #print("="*40)
+            durum = "⚠️ DDoS!" if (tahmin[0] == 1) else "✅ Normal"
+            # Sadece DDoS durumunda veya her 100 pakette bir yazdır
+            if durum == "⚠️ DDoS!":
+                print(f"🚨 SALDIRI TESPİT EDİLDİ! | IP: {src_ip} | Hız: {hiz_sn:.1f}/s")
+            elif sayac % 100 == 0:
+                print(f"{src_ip} | Hız: {hiz_sn:.1f}/s | {durum}")
+                        #print("="*40)
 
             # JSON'a ekle ama henüz yazma
             tum_paketler.append({
