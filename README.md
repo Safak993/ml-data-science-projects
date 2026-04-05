@@ -33,6 +33,13 @@
 
 ---
 
+## 📜 Lisans
+
+Bu proje iki lisans altında dağıtılmaktadır:
+
+- **Açık Kaynak:** [MIT License](./MIT_LICENSE)
+- **Ticari Kullanım:** [Ticari Lisans](./COMMERCIAL_LICENSE)
+
 ## 🤖 Sklearn Projeleri
 
 | Proje      | Açıklama          | Algoritma |
