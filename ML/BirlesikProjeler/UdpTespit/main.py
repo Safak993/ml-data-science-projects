@@ -48,7 +48,7 @@ def paket_isle(paket):
         kuyruk.put(paket)
 
 # Sniffer sürekli arka planda çalışır
-sniffer = AsyncSniffer(filter="udp", prn=paket_isle, iface="\\Device\\NPF_Loopback")
+sniffer = AsyncSniffer(filter="udp", prn=paket_isle)
 sniffer.start()
 
 async def analiz():
