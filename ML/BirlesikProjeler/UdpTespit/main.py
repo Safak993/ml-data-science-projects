@@ -88,7 +88,7 @@ from sklearn.tree import plot_tree
 
 plt.figure(figsize=(20,10))
 plot_tree(model, feature_names=X.columns, class_names=['No Diabetes', 'Diabetes'], filled=True)
-plt.savefig("diabetes_decision_tree.png") # Bu satır dosyayı oluşturur
+plt.savefig("diabetes_decision_tree.png", dpi=300, bbox_inches='tight')
 plt.show()
 if __name__ == "__main__":
     io.run(analiz())
