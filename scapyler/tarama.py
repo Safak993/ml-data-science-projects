@@ -12,9 +12,17 @@ async def taramayap():
     await io.sleep(2)
     yakalananlar = tarama.stop()
     analiz_bitti = True
+    
+    print("\nYakalananlar🏠\n")
+    print("="*50)
     print(yakalananlar)
+    print("="*50)
+    print("\n\n")
+    print("\n Yakalananların özellikleri:\n\n")
+    print("="*80)
     if yakalananlar:
         yakalananlar.summary()
+        print("="*80)
 async def animation():
     global analiz_bitti, baslangic_zamani
     karakterler = ["|", "/", "-", "\\"]
