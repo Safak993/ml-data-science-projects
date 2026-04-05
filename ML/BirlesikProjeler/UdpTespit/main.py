@@ -34,7 +34,7 @@ def paket_isle(paket):
         kuyruk.put(paket)
 
 # Sniffer sürekli arka planda çalışır
-sniffer = AsyncSniffer(filter="udp",prn=paket_isle)
+sniffer = AsyncSniffer(filter="udp", prn=paket_isle, iface="\\Device\\NPF_Loopback")
 sniffer.start()
 
 async def analiz():
@@ -47,15 +47,21 @@ async def analiz():
             src_ip = paket[IP].src
             simdi = time.time()
             ip_gecmisi[src_ip].append({"zaman": simdi, "boyut": len(paket)})
-            ip_gecmisi[src_ip] = [p for p in ip_gecmisi[src_ip] if simdi - p["zaman"] < 5]
+            ip_gecmisi[src_ip] = [p for p in ip_gecmisi[src_ip] if simdi - p["zaman"] < 0.1]
             gecmis = ip_gecmisi[src_ip]
             paket_sayisi = len(gecmis)
-            sure = simdi - gecmis[0]["zaman"] if len(gecmis) > 1 else 0.001
+            sure = simdi - gecmis[0]["zaman"] if len(gecmis) > 1 else 0.000001
+            sure = sure if sure > 0 else 0.000001
             hiz = paket_sayisi / sure
+
             boy = sum(p["boyut"] for p in gecmis) / paket_sayisi
-            tahmin = model.predict([[paket_sayisi, hiz, sure, boy]])
-            durum = "⚠️ DDoS!" if tahmin[0] == 1 or hiz > 20 else "✅ Normal"
+            sure_micro = sure * 1_000_000  # microsaniyeye çevir
+            hiz_micro = paket_sayisi / sure_micro 
+            tahmin = model.predict([[paket_sayisi, hiz_micro, sure_micro, boy]])
+            print("="*40)
+            durum = "⚠️ DDoS!" if tahmin[0] == 1 else "✅ Normal"
             print(f"{src_ip} | paket:{paket_sayisi} | hız:{hiz:.1f}/s | {durum}")
+            print("="*40)
 
             # JSON'a ekle ama henüz yazma
             tum_paketler.append({
@@ -71,8 +77,21 @@ async def analiz():
                 with open("packets.json", "w") as f:
                     json.dump(tum_paketler, f, indent=4)
                 print(f"💾 {sayac} paket kaydedildi")
-
-        await io.sleep(0.001)  # 0.01 yerine 0.001
+            if sayac % 100 == 0 and durum =="⚠️ DDoS!":
+               with open("ddos_log.json", "w") as f:
+                   json.dump(tum_paketler, f, indent=4)
+               print(f"🚨 DDoS kaydedildi!")
+        await io.sleep(0.001)  
 
 if __name__ == "__main__":
     io.run(analiz())
+#===============================================
+
+
+#- Eğer biranda ddos! derse çok şaşmayın eğer bir kasıntı yoksa ve birazcık atıp bırakıyosa korkulucak birşey yok
+#- Olabilite durumlar:
+#- Her saniye ddos uyarısı geliyorsa
+#- 1saniyede 900 1000 civarı pakey geliyorsa
+
+#- By Safak993/Siber Güvenlik
+#===============================================================================
