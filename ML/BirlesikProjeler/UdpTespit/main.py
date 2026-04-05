@@ -3,6 +3,8 @@ import asyncio as io
 import time
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split 
+from sklearn.metrics import accuracy_score
 from collections import defaultdict
 import os
 import json
@@ -23,6 +25,18 @@ df = pd.DataFrame(data)
 X = df[['paket', 'hiz', 'sure', 'paket_boy']]
 y = df['sonuc']
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train) 
+
+
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+
+print("-" * 30)
+print(f"✅ Model Başarı Oranı: %{accuracy * 100:.2f}")
+print("-" * 30)
 model = DecisionTreeClassifier()
 model.fit(X, y)
 
@@ -90,6 +104,7 @@ plt.figure(figsize=(20,10))
 plot_tree(model, feature_names=X.columns, class_names=['No Diabetes', 'Diabetes'], filled=True)
 plt.savefig("diabetes_decision_tree.png", dpi=300, bbox_inches='tight')
 plt.show()
+
 if __name__ == "__main__":
     io.run(analiz())
 #===============================================

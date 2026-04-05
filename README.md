@@ -117,5 +117,13 @@ pip install -r requirements.txt
 
 ## 🤖⛓ DDoS Saldırı önleyici botunun öğrenim ağacı:
 
+### 🚀 Model Performance
+
+| Metric             | Value                     |
+| :----------------- | :------------------------ |
+| **Accuracy Score** | **%99.76**                |
+| **Test Split**     | 80/20 (Random State: 42)  |
+| **Training Data**  | Pima & SYN-Training Mixed |
+
 ![Diabetes Decision Tree](ML/BirlesikProjeler/UdpTespit/diabetes_decision_tree.png)
 _"Kod yazmak sadece bir araçtır, asıl amaç bir şeyler inşa etmektir."_ 💻✨
