@@ -115,4 +115,7 @@ pip install -r requirements.txt
 
 ---
 
+## 🤖⛓ DDoS Saldırı önleyici botunun öğrenim ağacı:
+
+![Diabetes Decision Tree](ML/BirlesikProjeler/UdpTespit/diabetes_decision_tree.png)
 _"Kod yazmak sadece bir araçtır, asıl amaç bir şeyler inşa etmektir."_ 💻✨
