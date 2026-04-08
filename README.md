@@ -20,7 +20,21 @@ Projeyi test etmek için loopback üzerinde UDP paketi gönderen
 bir script kullanılmıştır.
 
 ```
-📦 ml-network-projects/
+📦 ml-data-science-projects/
+ ┣ 📂 SiberGuv/
+ ┃ ┣ 📂 Calismalar/
+ ┃ ┃ ┣ 📂Cryp_to/
+ ┃ ┃ ┃ ┣ 📄 crpto.py
+ ┃ ┃ ┣ 📂 aio_http/
+ ┃ ┃ ┃ ┣ 📄 aio.py
+ ┃ ┃ ┃ ┣ 📄 Site_Tarama.py
+ ┃ ┃ ┣ 📂 minikler/
+ ┃ ┃ ┃ ┣ 📄 requ.py
+ ┃ ┃ ┃ ┣ 📄 ric.py
+ ┃ ┃ ┃ ┣ 📄 user.py
+ ┃ ┃ ┣ 📂 pw_n/
+ ┃ ┃ ┃ ┣ 📄 p__wn.py
+ ┃ ┣ 📄 requirements.txt
  ┣ 📂 ml/
  ┃ ┣ 📂 Çalışma/
  ┃ ┃ ┣ 📄 DDoS_Simulation.py

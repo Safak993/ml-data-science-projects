@@ -1,0 +1,6 @@
+rich
+pwntools
+pycryptodome
+aiohttp
+sklearn
+pandas
