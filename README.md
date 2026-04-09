@@ -22,9 +22,12 @@ bir script kullanılmıştır.
 ```
 📦 ml-data-science-projects/
  ┣ 📂 SiberGuv/
+ ┃ ┣ 📄 data.json
  ┃ ┣ 📂 Calismalar/
  ┃ ┃ ┣ 📂Cryp_to/
  ┃ ┃ ┃ ┣ 📄 crpto.py
+ ┃ ┃ ┣ 📂 ric_h/
+ ┃ ┃ ┃ ┣ 📄 KullanıcıTable.py
  ┃ ┃ ┣ 📂 aio_http/
  ┃ ┃ ┃ ┣ 📄 aio.py
  ┃ ┃ ┃ ┣ 📄 Site_Tarama.py
