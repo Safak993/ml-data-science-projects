@@ -60,6 +60,12 @@ bir script kullanılmıştır.
  ┃ ┃ ┣ 📄 main.py
  ┃ ┃ ┣ 📄 Syn-training.parquet (dataset)
  ┃ ┃ ┣ 📄 requirements.txt
+ ┣ 📂 Exploiting/
+ ┃ ┣ 📂 Calismalar/
+ ┃ ┃ ┣ 📂 Param-ikos/
+ ┃ ┃ ┃ ┣ 📄 First.py
+ ┃ ┣ 📂 Projeler/
+ ┃ ┃ ┣ 📄 BruteForce.py/legal
  ┣ 📂 Data/
  ┃ ┣ 🧰 Set.zip
  ┃ ┃
@@ -78,7 +84,19 @@ Bu proje iki lisans altında dağıtılmaktadır:
 - **Açık Kaynak:** [MIT License](./MIT_LICENSE)
 - **Ticari Kullanım:** [Ticari Lisans](./COMMERCIAL_LICENSE)
 
-## 🤖 Sklearn Projeleri
+---
+
+> [!WARNING]
+>
+> ## ⚠️ Sorumluluk Reddi / Disclaimer
+>
+> **TR:** Bu projede yer alan kodlar ve araçlar sadece **eğitim** ve **etik siber güvenlik testleri** amacıyla geliştirilmiştir. Bu araçların izinsiz sistemler üzerinde kullanılması yasal sonuçlar doğurabilir. Geliştirici, bu araçların yanlış kullanımından kaynaklanan hiçbir zarardan veya yasal sorumluluktan mesul tutulamaz.
+>
+> **EN:** The codes and tools in this project are developed for **educational purposes** and **ethical cybersecurity testing** only. > > Using these tools on unauthorized systems may lead to legal consequences. The developer cannot be held responsible for any damage or > legal liability arising from the misuse of these tools.
+
+---
+
+> ## 🤖 Sklearn Projeleri
 
 | Proje      | Açıklama          | Algoritma |
 | ---------- | ----------------- | --------- |
