@@ -11,7 +11,7 @@
 
   <img src="https://img.shields.io/badge/Rich-black?style=for-the-badge&logo=pypy&logoColor=FF00FF" alt="Rich" />
   
-  <img src="https://img.shields.io/badge/Paramiko-2E3440?style=for-the-badge&logo=gnuterminal&logoColor=88C0D0" alt="Paramiko" />
+  <img src="https://img.shields.io/badge/$_PARAMIKO-EXPLOIT-00FF00?style=for-the-badge&labelColor=000000" alt="Paramiko" />
   
   <img src="https://img.shields.io/badge/Requests-2155E1?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Requests" />
   
