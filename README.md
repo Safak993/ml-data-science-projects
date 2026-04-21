@@ -2,9 +2,26 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
+
   <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
+
   <img src="https://img.shields.io/badge/Scapy-Network-1a1a2e?style=for-the-badge&logo=python&logoColor=white"/>
+  
   <img src="https://img.shields.io/badge/Status-Aktif-success?style=for-the-badge"/>
+
+  <img src="https://img.shields.io/badge/Rich-black?style=for-the-badge&logo=pypy&logoColor=FF00FF" alt="Rich" />
+  
+  <img src="https://img.shields.io/badge/Paramiko-2E3440?style=for-the-badge&logo=gnuterminal&logoColor=88C0D0" alt="Paramiko" />
+  
+  <img src="https://img.shields.io/badge/Requests-2155E1?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Requests" />
+  
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
+  
+  <img src="https://img.shields.io/badge/AioHttp-2C5BB4?style=for-the-badge&logo=fastapi&logoColor=white" alt="AioHttp" />
+  
+  <img src="https://img.shields.io/badge/Pwntools-C0392B?style=for-the-badge&logo=kali-linux&logoColor=white" alt="Pwntools" />
+  
+  <img src="https://img.shields.io/badge/PyCryptodome-F1C40F?style=for-the-badge&logo=keepassxc&logoColor=black" alt="PyCryptodome" />
 </p>
 
 > Bu repo, Python öğrenme yolculuğumda geliştirdiğim **Makine Öğrenmesi** ve **Ağ Analizi** projelerini içerir.  
@@ -93,6 +110,11 @@ Bu proje iki lisans altında dağıtılmaktadır:
 > **TR:** Bu projede yer alan kodlar ve araçlar sadece **eğitim** ve **etik siber güvenlik testleri** amacıyla geliştirilmiştir. Bu araçların izinsiz sistemler üzerinde kullanılması yasal sonuçlar doğurabilir. Geliştirici, bu araçların yanlış kullanımından kaynaklanan hiçbir zarardan veya yasal sorumluluktan mesul tutulamaz.
 >
 > **EN:** The codes and tools in this project are developed for **educational purposes** and **ethical cybersecurity testing** only. > > Using these tools on unauthorized systems may lead to legal consequences. The developer cannot be held responsible for any damage or > legal liability arising from the misuse of these tools.
+
+## 📜 Lisans Bilgisi / License Information
+
+Bu projenin kaynak kodları **MIT Lisansı** ile korunmaktadır. Ticari kullanımlar için lütfen iletişime geçiniz.
+Detailed license terms can be found in the [LICENSE](./LICENSE) file.
 
 ---
 
