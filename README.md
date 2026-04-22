@@ -22,6 +22,8 @@
   <img src="https://img.shields.io/badge/Pwntools-C0392B?style=for-the-badge&logo=kali-linux&logoColor=white" alt="Pwntools" />
   
   <img src="https://img.shields.io/badge/PyCryptodome-F1C40F?style=for-the-badge&logo=keepassxc&logoColor=black" alt="PyCryptodome" />
+  <img src="https://img.shields.io/badge/json-data-8A2BE2?style=for-the-badge&logo=codefactor&logoColor=black&labelColor=FFD100" alt="Json" />
+  <img src="https://img.shields.io/badge/sqlite--data-db-8A2BE2?style=for-the-badge&logo=sqlite&logoColor=FFD100&labelColor=003B57" alt="Sqlite" />
 </p>
 
 > Bu repo, Python öğrenme yolculuğumda geliştirdiğim **Makine Öğrenmesi** ve **Ağ Analizi** projelerini içerir.  
