@@ -45,6 +45,8 @@ bir script kullanılmıştır.
  ┃ ┃ ┃ ┣ 📄 crpto.py
  ┃ ┃ ┣ 📂 ric_h/
  ┃ ┃ ┃ ┣ 📄 KullanıcıTable.py
+ ┃ ┃ ┃ ┣ 📄 live.py
+ ┃ ┃ ┃ ┣ 📄 Panel.py
  ┃ ┃ ┣ 📂 aio_http/
  ┃ ┃ ┃ ┣ 📄 aio.py
  ┃ ┃ ┃ ┣ 📄 Site_Tarama.py
@@ -54,6 +56,11 @@ bir script kullanılmıştır.
  ┃ ┃ ┃ ┣ 📄 user.py
  ┃ ┃ ┣ 📂 pw_n/
  ┃ ┃ ┃ ┣ 📄 p__wn.py
+ ┃ ┃ ┣ 📂 json_data/
+ ┃ ┃ ┃ ┣ 📄 First.json
+ ┃ ┃ ┃ ┣ 📄 First.py
+ ┃ ┃ ┃ ┣ 📄 yonetim.json
+ ┃ ┃ ┃ ┣ 📄 yonetim.py
  ┃ ┣ 📄 requirements.txt
  ┣ 📂 ml/
  ┃ ┣ 📂 Çalışma/
